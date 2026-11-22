@@ -1,27 +1,23 @@
-🐱🐶 Cats & Dogs Classification
-Transfer Learning with MobileNetV2
 
-<p align="center">
-<img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/TensorFlow-DeepLearning-orange?logo=tensorflow&logoColor=white" />
-<img src="https://img.shields.io/badge/Model-MobileNetV2-green" />
-<img src="https://img.shields.io/badge/Task-Binary%20Classification-purple" />
-</p>
+# Cats and Dogs Classification Using Transfer Learning
 
-📌 About the Project
+## Project Overview
 
-A deep learning project that classifies images into Cats 🐱 or Dogs 🐶 using Transfer Learning.
+This project uses Deep Learning and Transfer Learning to classify images of cats and dogs.
 
-The project uses a pre-trained MobileNetV2 model with ImageNet weights as a feature extractor, along with custom classification layers.
+A pre-trained **MobileNetV2** model with ImageNet weights is used for feature extraction. Additional layers are added to perform binary image classification.
 
-🛠️ Tech Stack
-Python
-TensorFlow & Keras
-NumPy
-MobileNetV2
-Transfer Learning
-📂 Project Structure
-text
+## Technologies Used
+
+- Python
+- TensorFlow and Keras
+- NumPy
+- MobileNetV2
+- Transfer Learning
+
+## Project Structure
+
+```text
 Cats-Dogs-Classification/
 │
 ├── sample_images/
@@ -31,116 +27,118 @@ Cats-Dogs-Classification/
 ├── README.md
 ├── .gitignore
 └── .gitattributes
+```
 
-📊 Dataset
+## Dataset
 
-Cats and Dogs Light Dataset
+The project uses the **Cats and Dogs Light Dataset**.
 
-Training: 1,000 images
-Testing: 400 images
-Total: 1,400 images
+**Dataset Links:**
+- [Cats and Dogs Light Dataset](https://zenodo.org/records/5226945)
+- [Kaggle Dogs vs Cats Dataset](https://www.kaggle.com/c/dogs-vs-cats/data)
 
-Download Dataset:
+| Dataset | Images |
+|---|---:|
+| Training | 1,000 |
+| Testing | 400 |
+| **Total** | **1,400** |
 
-Cats and Dogs Light – Download
-Kaggle – Dogs vs Cats
+After downloading and extracting the dataset, maintain the following structure:
 
-Dataset folder structure:
-
-text
+```text
 cats_dogs_light/
+│
 ├── train/
 │   ├── cats/
 │   └── dogs/
+│
 └── test/
     ├── cats/
     └── dogs/
+```
 
-⚙️ Installation & Setup
+## Installation and Setup
 
-1. Clone the repository
+**1. Clone the repository**
 
-Clone the project and open it in VS Code or your preferred IDE.
+Clone the repository and open the project folder in VS Code or your preferred IDE.
 
-2. Install dependencies
+**2. Install dependencies**
 
-bash
+```bash
 pip install -r requirements.txt
+```
 
+**3. Download the dataset**
 
-3. Download and extract the dataset
+Download and extract the dataset to your computer.
 
-Download the dataset using the link above and extract it to your computer.
+## Configure Dataset Paths
 
-4. Update dataset paths
-
-Open app.py and replace the existing training and testing paths with your own dataset locations.
+Before running the project, open `app.py` and update the training and testing dataset paths according to where you downloaded the dataset.
 
 For example:
 
-Folder	Example Path
-Train	D:\Dataset\cats_dogs_light\train
-Test	D:\Dataset\cats_dogs_light\test
-⚠️ Important: Update the paths according to where you downloaded the dataset. Also update the image path if you want to test your own image.
-▶️ Run the Project
+| Folder | Example Path |
+|---|---|
+| Training | `D:\Dataset\cats_dogs_light\train` |
+| Testing | `D:\Dataset\cats_dogs_light\test` |
 
-Run the application from your project directory:
+**Important:** Replace these example paths with the actual locations on your computer. Also update the image path if you want to test your own image.
 
-bash
+## Run the Project
+
+Open the terminal in the project directory and execute:
+
+```bash
 python app.py
+```
 
+To run the Jupyter Notebook, open `Binary_Classification using Transferlearning.ipynb` and execute the cells sequentially.
 
-To use the Jupyter Notebook, open:
+## Model Architecture
 
-Binary_Classification using Transferlearning.ipynb
+The project uses MobileNetV2 as a pre-trained feature extractor.
 
-Run all cells sequentially to train and evaluate the model.
+The model consists of:
 
-🧠 Model Configuration
-Parameter	Value
-Architecture	MobileNetV2
-Input Size	160 × 160
-Batch Size	16
-Epochs	10
-Optimizer	Adam
-Learning Rate	0.0001
-Loss	Binary Crossentropy
-Output Activation	Sigmoid
-Early Stopping	Patience = 3
-Model Workflow
+1. Data Augmentation
+2. MobileNetV2 Feature Extraction
+3. Global Average Pooling
+4. Dense Layer (128 neurons)
+5. Dropout Layer
+6. Sigmoid Output Layer
 
-<pre>
-Input Image
-↓
-Data Augmentation
-↓
-MobileNetV2
-↓
-Feature Extraction
-↓
-Global Average Pooling
-↓
-Dense + Dropout
-↓
-Sigmoid Output
-↓
-Cat 🐱 / Dog 🐶
-</pre>
+## Model Configuration
 
-🔍 Prediction
+| Parameter | Value |
+|---|---|
+| Model | MobileNetV2 |
+| Input Size | 160 × 160 |
+| Batch Size | 16 |
+| Epochs | 10 |
+| Optimizer | Adam |
+| Learning Rate | 0.0001 |
+| Loss Function | Binary Crossentropy |
+| Activation | Sigmoid |
+| Early Stopping | Patience = 3 |
 
-The model uses a probability threshold of 0.5:
+## Prediction
 
-Probability ≥ 0.5 → 🐶 Dog
-Probability < 0.5 → 🐱 Cat
-📌 Notes
-Ensure the dataset folder structure is correct.
-Update local paths before running the application.
-Internet access may be required to download MobileNetV2 ImageNet weights for the first time.
-Training time depends on your system.
+The model predicts the probability of an image belonging to the dog class.
 
-<p align="center">
-<b>Made with ❤️ using TensorFlow & MobileNetV2</b>
-<br/>
-⭐ If you like this project, consider giving it a star!
-</p>
+- Probability ≥ 0.5: Dog
+- Probability < 0.5: Cat
+
+## Notes
+
+- Download and extract the dataset before running the project.
+- Update the dataset and image paths in `app.py`.
+- Ensure the dataset folder structure is correct.
+- An internet connection may be required initially to download MobileNetV2 pre-trained weights.
+
+## Author
+
+**Cats and Dogs Classification Using Transfer Learning**
+
+A Deep Learning project built using TensorFlow, Keras, and MobileNetV2.
